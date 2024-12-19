@@ -4,6 +4,7 @@ from .models import *
 def index(request):
         if request.POST:
             todo123=request.POST.get("todo1")
+            print(todo123)
             obj=Todoitem(title=todo123)
             obj.save()
             

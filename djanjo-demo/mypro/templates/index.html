@@ -1,18 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-     <form action="{% url 'index' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="todo1">
-    <input type="submit" value="submit">
-</form>
-{% for i in feeds %}
-{{i.title}}
-{% endfor %}
+    
+<div class="bg1">
+    <div class="box-1">
+        <h1 class="main-hed">TODO LIST</h1>
+        <div class="box-value">
+            <form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="todo1">
+                <br>
+                
+                   
+                <!-- <input type="date" name="date"> -->
+                
+                <!-- <input type="submit" value="submit"> -->
+                <button type="submit">ADD</button>
+            </form>
+        </div>   
+        <div class="box-2">
+            {% for i in feeds %}
+            <p>{{i.title}}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
